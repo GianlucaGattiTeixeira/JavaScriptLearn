@@ -20,7 +20,6 @@ function Delete(node, valueToDelete)
 {
     if (valueToDelete < node.value)
     {
-        console.log('entro al if')
         Delete(node.left, valueToDelete);
     }
     else if (valueToDelete > node.value)
@@ -31,7 +30,6 @@ function Delete(node, valueToDelete)
     {
         if (node.left === null && node.right === null)
         {
-            node.value = null; 
             node = null;
             return node;
         }
