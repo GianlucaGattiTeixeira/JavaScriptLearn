@@ -18,7 +18,7 @@ class Nod
 
     Delete(valueToDelete)
     {
-        logic.Del(this, valueToDelete);
+        logic.Delete(this, valueToDelete);
     }
 }
 

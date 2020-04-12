@@ -1,23 +1,7 @@
 const nodEntity = require('./Nod.js')
 const Nod = nodEntity.Nod;
 
-function Del(node, valueToDelete)
-{
-    if (valueToDelete == this.value)
-    {
-        if (this.value.left == null && this.value.right == null)
-        {
-            node = null;
-            return;
-        }
-        return;
-    }
-    else if (ValueToDelete < this.value)
-    {
-        return;
-    }
-    return;
-}
+
 
 function Add(node, newNode)
 {
@@ -32,7 +16,28 @@ function Add(node, newNode)
 }
 
 
+function Delete(node, valueToDelete)
+{
+    if (valueToDelete < node.value)
+    {
+        console.log('entro al if')
+        Delete(node.left, valueToDelete);
+    }
+    else if (valueToDelete > node.value)
+    {
+        Delete(node.right, valueToDelete);
+    }
+    else if (valueToDelete == node.value)
+    {
+        if (node.left === null && node.right === null)
+        {
+            node.value = null; 
+            node = null;
+            return node;
+        }
+    }
 
+}
 
 function Min(node)
 {
@@ -52,5 +57,6 @@ function Min(node)
 module.exports = 
 {
     Add : Add,
-    Min : Min
+    Min : Min,
+    Delete : Delete
 }
