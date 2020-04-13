@@ -15,29 +15,20 @@ function Add(node, newNode)
         }
 }
 
-
-function Delete(node, valueToDelete)
+function Min(node)
 {
-    if (valueToDelete < node.value)
+    if (!node.left)
     {
-        Delete(node.left, valueToDelete);
+        return node;
     }
-    else if (valueToDelete > node.value)
+    else
     {
-        Delete(node.right, valueToDelete);
+        return Min(node.left);
     }
-    else if (valueToDelete == node.value)
-    {
-        if (node.left === null && node.right === null)
-        {
-            node = null;
-            return node;
-        }
-    }
-
 }
 
-function Min(node)
+
+function MinValue(node)
 {
     if (node.left == null)
     {
@@ -47,6 +38,48 @@ function Min(node)
     {
         node.left.Min(node.left);
     }
+}
+
+
+
+function Delete(node, valueToDelete)
+{
+    if (valueToDelete < node.value)
+    {
+        node.left = this.Delete(node.left, valueToDelete);
+        return node;
+    }
+    else if (valueToDelete > node.value)
+    {
+        node.right = this.Delete(node.right, valueToDelete);
+        return node;
+    }
+    else if (valueToDelete == node.value)
+    {
+        if (node.left === null && node.right === null)
+        {
+            return null;
+        }
+        else if(node.left != null && node.right == null)
+        {
+            node = node.left;
+            return node
+        }
+        else if(node.left == null && node.right != null)
+        {
+            node = node.right;
+            return node
+        }
+        else 
+        {
+            leftBranch = node.left;
+            node = node.right;
+            min = Min(node);
+            min.left = leftBranch;
+            return node;
+        }
+    }
+
 }
 
 
