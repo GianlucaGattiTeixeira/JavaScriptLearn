@@ -82,12 +82,40 @@ function Delete(node, valueToDelete)
 
 }
 
+function CountNodes(node)
+{
+    if (node == null)
+    {
+        return 0;
+    }
+    else 
+    {
+        return 1 + (this.CountNodes(node.left) + this.CountNodes(node.right));
+    }
+}
 
+/*
+    if (!node.left && !node.left)
+    {
+        return 1;
+    }
+    if (node.left)
+    {
+        return 1 + this.countNodes(node.left);
+    }
+    if (node.right)
+    {
+        return 1 + this.countNodes(node.right);
+    }
+
+    return 
+*/
 
 
 module.exports = 
 {
     Add : Add,
     Min : Min,
-    Delete : Delete
+    Delete : Delete,
+    CountNodes : CountNodes
 }

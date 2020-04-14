@@ -26,6 +26,11 @@ class Tree
         this.nodeZero = logic.Delete(this.nodeZero, valueToDelete);
     }
 
+    CountNodes()
+    {
+        return logic.CountNodes(this.nodeZero);
+    }
+
 
 }
 
